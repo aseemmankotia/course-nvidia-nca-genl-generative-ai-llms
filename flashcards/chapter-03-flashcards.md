@@ -1,0 +1,16 @@
+## Chapter 3: Prompt Engineering — Flashcards
+
+| # | Front (Question) | Back (Answer) |
+|---|-----------------|---------------|
+| 1 | Temperature = 0 means what for model output? | Deterministic output — always selects highest probability token. Same input → same output. Use for: customer service, data extraction, anything requiring consistency. Exam tip: Temperature 0 = no randomness. |
+| 2 | When to use zero-shot vs few-shot prompting? | Zero-shot: task is straightforward or well-known (sentiment analysis, simple classification). Few-shot: task is nuanced, domain-specific, or requires specific format (1-5 examples). Exam tip: If you have good examples and the task is complex → few-shot. |
+| 3 | What is chain-of-thought (CoT) prompting? | Adding 'Let's think step by step' or similar to prompt. Forces model to show reasoning before conclusion. Use for: math, logic, analysis, diagnosis. Improves accuracy on complex reasoning by 20-40%. Exam tip: CoT = show your work. |
+| 4 | Top-p (nucleus sampling) = 0.1 means what? | Only consider tokens in top 10% cumulative probability. Lower top-p = more focused, less diverse. top-p=0.1 very focused, top-p=1.0 considers all tokens. Exam tip: Low top-p = narrow choices, high top-p = wide choices. |
+| 5 | System prompt vs user prompt — which takes precedence? | User prompts typically override system prompts when in conflict. System prompt = general behavior/role. User prompt = specific task. Exam tip: User prompt is 'louder' — if they conflict, user usually wins. |
+| 6 | Temperature range for creative writing vs code generation? | Creative writing: 0.7-1.0 (varied, interesting). Code generation: 0.2-0.4 (correct, consistent). Exam tip: Higher temperature = more creative/risky, lower = more predictable/safe. |
+| 7 | How many examples for few-shot prompting? | Typically 1-5 examples. More examples = better quality but uses more context window. Diminishing returns after 5. Exam tip: Few-shot = small number of examples (not hundreds), in-context learning. |
+| 8 | Max_tokens parameter controls what? | Maximum length of generated output (not input). Doesn't control quality or formatting, only length ceiling. Model may stop earlier if it finishes naturally. Exam tip: max_tokens = output limit, not content quality control. |
+| 9 | Common pitfall: overloading context means what? | Putting too much information in prompt (entire documents, many examples). Dilutes focus, increases cost, may cause model to miss key details. Better: summarize, chunk, or use RAG. Exam tip: More context ≠ better results. |
+| 10 | Prompt template for JSON output — best practice? | Specify exact schema in prompt: '{"field1": "string", "field2": []}'. Set temperature=0 for consistency. Include example if format is complex. Exam tip: Template + low temp = structured output. |
+| 11 | Temperature > 1.0 is used when? | Rarely in production. Temp > 1.0 = highly random, often incoherent. Use for experimental creative tasks only. Typical range: 0-1. Exam tip: Temp > 1 = danger zone, usually wrong answer. |
+| 12 | Ambiguous instructions cause what problem? | Inconsistent outputs, model guessing intent, hallucinations. Fix: be specific about format, length, tone, constraints. Exam tip: Vague prompt = unpredictable output. Specificity matters. |
